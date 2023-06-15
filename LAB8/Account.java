@@ -1,5 +1,5 @@
 
-package jftdrdr68dr.bankmanager;
+
 
 public class Account {
     protected float accountBalance;
