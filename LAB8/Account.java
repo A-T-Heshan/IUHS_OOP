@@ -7,20 +7,22 @@ public class Account {
             this.accountBalance = initialBalance;
         }
         else{
-            System.out.println("Not valid the initial balance");
+            System.out.println("Not valid the initial balance\n");
         }
     }
     
     protected void deposit(double depositAmount){
-        accountBalance += depositAmount;
-    }
+            accountBalance += depositAmount;
+            System.out.println("Deposited: Rs." + depositAmount + "\n");
+           }
     
     protected void withdraw(double withdrawAmount){
         if (withdrawAmount > accountBalance) {
-            System.out.println("insufficient account balance");
+            System.out.println("insufficient account balance\n");
         }
         else{
             accountBalance -= withdrawAmount;
+            System.out.println("Withdrawed: Rs." + withdrawAmount + "\n");
         }
         
     }

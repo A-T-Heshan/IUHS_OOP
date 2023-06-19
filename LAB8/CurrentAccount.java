@@ -7,13 +7,20 @@ public class CurrentAccount extends Account{
         this.feeCharge = feeCharge;
     }
     
+    
+    
     @Override
     protected void deposit(double depositAmount){
-        super.deposit(depositAmount - feeCharge);
+        super.deposit(depositAmount);
+        accountBalance -= feeCharge;
+        System.out.println("Fee Charged: Rs."+ feeCharge + "\n");
     }
+    
     @Override
     protected void withdraw(double withdrawAmount){
-        super.withdraw(withdrawAmount + feeCharge);
+        super.withdraw(withdrawAmount);
+        accountBalance -= feeCharge;
+        System.out.println("Fee Charged: Rs." + feeCharge + "\n");
     }
 }
 
