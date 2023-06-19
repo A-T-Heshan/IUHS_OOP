@@ -1,26 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package jftdrdr68dr.bankmanager;
 
-/**
- *
- * @author User
- */
 public class CurrentAccount extends Account{
-    private final float feeCharge = 30;
+    private double feeCharge;
     
-    public CurrentAccount(float accountBalance) {
-        super(accountBalance);
+    public CurrentAccount(double initialBalance,double feeCharge) {
+        super(initialBalance);
+        this.feeCharge = feeCharge;
     }
     
     @Override
-    protected void deposit(float depositAmount){
-        super.accountBalance += depositAmount - feeCharge;
+    protected void deposit(double depositAmount){
+        super.deposit(depositAmount - feeCharge);
     }
     @Override
-    protected void withdraw(float withdrawAmount){
-        super.accountBalance -= (withdrawAmount + feeCharge);
+    protected void withdraw(double withdrawAmount){
+        super.withdraw(withdrawAmount + feeCharge);
     }
 }
+

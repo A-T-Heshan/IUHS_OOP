@@ -1,31 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package jftdrdr68dr.bankmanager;
 
-/**
- *
- * @author User
- */
 public class SavingsAccount extends Account{
-    private float interesRate = 0.02f;
+    private double interesRate = 0.02f;
 
-    public SavingsAccount(int accountBalance) {
-        super(accountBalance);
+    public SavingsAccount(double initialBalance,double interestRate) {
+        super(initialBalance + initialBalance * interestRate);
+        this.interesRate = interestRate;
     }
-    public float calculateInterest(float depositAmount){
-        float interest = depositAmount * interesRate;
+    public double calculateInterest(){
+        double interest = super.accountBalance * interesRate;
         return interest;
     }
     @Override
-    protected void deposit(float depositAmount){
-        accountBalance += depositAmount + calculateInterest(depositAmount);
+    protected void deposit(double depositAmount){
+        super.deposit(depositAmount);
+        super.accountBalance +=  depositAmount * interesRate;
     }
     
     @Override
-    protected void withdraw(float withdrawAmount){
-        super.accountBalance -= withdrawAmount;
+    protected void withdraw(double withdrawAmount){
+        super.withdraw(withdrawAmount);
     }
     
 }

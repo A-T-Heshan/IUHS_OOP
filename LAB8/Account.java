@@ -1,29 +1,31 @@
 
-
-
 public class Account {
-    protected float accountBalance;
+    protected double accountBalance;
 
-    protected Account(float accountBalance) {
-        if (accountBalance > 0) {
-            this.accountBalance = accountBalance;
+    protected Account(double initialBalance) {
+        if (initialBalance > 0) {
+            this.accountBalance = initialBalance;
         }
         else{
             System.out.println("Not valid the initial balance");
         }
     }
     
-    protected void deposit(float depositAmount){
+    protected void deposit(double depositAmount){
+        accountBalance += depositAmount;
+    }
+    
+    protected void withdraw(double withdrawAmount){
+        if (withdrawAmount > accountBalance) {
+            System.out.println("insufficient account balance");
+        }
+        else{
+            accountBalance -= withdrawAmount;
+        }
         
     }
     
-    protected void withdraw(float withdrawAmount){
-        if (withdrawAmount > accountBalance) {
-            System.out.println("insufficient Account Balance");
-        }
-    }
-    
-    protected float getBalance(){
+    protected double getBalance(){
         return accountBalance;
     }
     
