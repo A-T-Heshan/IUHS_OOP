@@ -1,3 +1,4 @@
+
 public class FixedDepositeAccount extends Account{
     private double interest;
     private int depositPeriodInMonths;
@@ -6,15 +7,20 @@ public class FixedDepositeAccount extends Account{
         this.depositPeriodInMonths = depositPeriodInMonths;
     }
 
+
     @Override
    public void calInterest(double interestRate) {
         System.out.println("");
         interest = balance * interestRate /100/12 * depositPeriodInMonths;
         System.out.println("");
-        System.out.println("Balance ",": Rs." + balance);
+        System.out.println("Balance " + ": Rs." + balance);
         System.out.println("");
-        System.out.println("Interest ",": Rs." + interest);
+        System.out.println("Interest " +": Rs." + interest);
         System.out.println("");
+        balance += interest;
+        System.out.println("");
+        System.out.println("With Interset");
+        print();
     }
 
     @Override
@@ -23,6 +29,8 @@ public class FixedDepositeAccount extends Account{
         System.out.println("Name       : " + name);
         System.out.println("Balance    : Rs." + balance);
         System.out.println("");
+        System.out.println("-------------------------------");
+
     }
     
 }

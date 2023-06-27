@@ -1,3 +1,4 @@
+
 public class SavingsAccount extends Account{
         private double interest;
     public SavingsAccount(int accNumber, String name, double balance) {
@@ -27,15 +28,20 @@ public class SavingsAccount extends Account{
         System.out.println("Name       : " + name);
         System.out.println("Balance    : Rs." + balance);
         System.out.println("");
+        System.out.println("-------------------------------");
     }
 
     @Override
     public void calInterest(double interestRate) {
         interest = balance * interestRate /100/12;
         System.out.println("");
-        System.out.println("Balance ",": Rs." + balance);
-        System.out.println("Interest ",": Rs." + interest);
+        System.out.println("Balance " +": Rs." + balance);
+        System.out.println("Interest "+": Rs." + interest);
         System.out.println("");
+        balance += interest;
+        System.out.println("");
+        System.out.println("With Interset");
+        print();
     }
     
 }
